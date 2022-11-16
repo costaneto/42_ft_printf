@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dneto <dneto@student.42lisboa.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 19:51:05 by dneto             #+#    #+#             */
-/*   Updated: 2022/11/16 19:22:11 by dneto            ###   ########.fr       */
+/*   Created: 2022/11/09 17:00:16 by dneto             #+#    #+#             */
+/*   Updated: 2022/11/09 19:30:05 by dneto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	
+	size_t	i;
+	char	*str;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	str = malloc(ft_strlen(s) + 1 * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (i < ft_strlen(s))
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = 0;
+	return (str);
 }

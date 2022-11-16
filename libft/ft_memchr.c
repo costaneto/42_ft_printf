@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dneto <dneto@student.42lisboa.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 19:51:05 by dneto             #+#    #+#             */
-/*   Updated: 2022/11/16 19:22:11 by dneto            ###   ########.fr       */
+/*   Created: 2022/09/30 20:54:13 by dneto             #+#    #+#             */
+/*   Updated: 2022/10/01 21:47:51 by dneto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (((unsigned char *)s)[i] == ((unsigned char)c))
+			return ((unsigned char *)s + i);
+		i++;
+	}
+	return (NULL);
 }

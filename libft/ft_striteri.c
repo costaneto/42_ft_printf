@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dneto <dneto@student.42lisboa.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 19:51:05 by dneto             #+#    #+#             */
-/*   Updated: 2022/11/16 19:22:11 by dneto            ###   ########.fr       */
+/*   Created: 2022/11/09 19:33:42 by dneto             #+#    #+#             */
+/*   Updated: 2022/11/10 17:32:15 by dneto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	
+	size_t	i;
+
+	if (s)
+	{
+		i = 0;
+		while (s[i])
+		{
+			f(i, &s[i]);
+			i++;
+		}
+	}
 }

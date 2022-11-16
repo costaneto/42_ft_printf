@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dneto <dneto@student.42lisboa.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 19:51:05 by dneto             #+#    #+#             */
-/*   Updated: 2022/11/16 19:22:11 by dneto            ###   ########.fr       */
+/*   Created: 2022/08/12 22:18:58 by dneto             #+#    #+#             */
+/*   Updated: 2022/08/12 22:29:34 by dneto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
-
-int	ft_printf(const char *str, ...)
+int	ft_tolower(int c)
 {
-	
+	if ((unsigned char)c >= 'A' && (unsigned char)c <= 'Z')
+		c += 32;
+	return (c);
 }

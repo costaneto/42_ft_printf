@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dneto <dneto@student.42lisboa.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 19:51:05 by dneto             #+#    #+#             */
-/*   Updated: 2022/11/16 19:22:11 by dneto            ###   ########.fr       */
+/*   Created: 2022/11/13 20:07:46 by dneto             #+#    #+#             */
+/*   Updated: 2022/11/14 20:03:45 by dneto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	
+	t_list	*temp;
+
+	if (!lst || !del)
+		return ;
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		ft_lstdelone((*lst), del);
+		*lst = temp;
+	}
+	lst = NULL;
 }

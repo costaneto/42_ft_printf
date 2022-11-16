@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dneto <dneto@student.42lisboa.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 19:51:05 by dneto             #+#    #+#             */
-/*   Updated: 2022/11/16 19:22:11 by dneto            ###   ########.fr       */
+/*   Created: 2022/09/14 20:28:52 by dneto             #+#    #+#             */
+/*   Updated: 2022/10/31 16:30:58 by dneto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
-	
+	size_t	i;
+	size_t	j;
+
+	if (!*little)
+		return ((char *)big);
+	i = 0;
+	while ((i < len) && big[i])
+	{
+		j = 0;
+		while ((big[i + j] == little[j]) && (i + j < len) && (big[i + j] != 0))
+			j++;
+		if (little[j] == 0)
+			return ((char *)(big + i));
+		i++;
+	}
+	return (NULL);
 }
