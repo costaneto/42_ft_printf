@@ -6,13 +6,22 @@
 /*   By: dneto <dneto@student.42lisboa.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 19:51:05 by dneto             #+#    #+#             */
-/*   Updated: 2022/11/16 19:22:11 by dneto            ###   ########.fr       */
+/*   Updated: 2022/11/16 19:48:29 by dneto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 
-int	ft_printf(const char *str, ...)
+
+char	*ft()
 {
 	
+}
+
+
+int	ft_printf(const char *str, ...)
+{
+	int	count;
+
+	count = 
 }
