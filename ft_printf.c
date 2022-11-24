@@ -6,7 +6,7 @@
 /*   By: dneto <dneto@student.42lisboa.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 19:51:05 by dneto             #+#    #+#             */
-/*   Updated: 2022/11/23 19:54:52 by dneto            ###   ########.fr       */
+/*   Updated: 2022/11/24 21:44:03 by dneto            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,8 @@ int	ft_putnbr(int n, int count)
 
 }
 
-int	print_handler(char *s, va_list ap)
+int	print_handler(char *s, va_list ap, int count)
 {
-	int	count;
-
-	count = 0;
 	while (*s)
 	{
 		if (*s != '%')
@@ -60,21 +57,21 @@ int	print_handler(char *s, va_list ap)
 		else if (*++s == 'X')
 			count = ft_putchar(va_arg(ap, int), count);
 	}
+	return (count);
 }
-
-cspdiuxX%
 
 int	ft_printf(const char *s, ...)
 {
 	int		count;
 	va_list	ap;
 
+	count = 0;
 	if (!s)
 		return (NULL);
 	if (!*s)
 		return (0);
 	va_start(ap, s);
-	count = print_handler(s, ap);
+	count = print_handler(s, ap, count);
 	va_end(ap);
 	return (count);
 }
